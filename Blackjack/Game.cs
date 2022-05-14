@@ -18,13 +18,9 @@ namespace Blackjack
             {
                 try
                 {
-<<<<<<< HEAD
                     player.SetName( Console.ReadLine());
                     if(player.GetName() != "" && player.GetName() != "nothing" && player.GetName() != "Nothing"&& player.GetName() != "NOTHING")
-=======
-                    player.name = Console.ReadLine();
-                    if (player.name != "" && player.name != "nothing" && player.name != "Nothing" && player.name != "NOTHING" && player.name != "Dealer")
->>>>>>> 602baa3c1bc80eba280eec4eb5b79659f9889483
+
                     {
                         break;
                     }
@@ -56,11 +52,7 @@ namespace Blackjack
                     dealer.ClearHand();
                 }
             }
-<<<<<<< HEAD
             if (deck.NeedShuffle())
-=======
-            if (deck.deckUnOrder.Count < 10) // if the deck has less then 10 cards it will shuffle before dealing in order to not run out of cards during a game
->>>>>>> 602baa3c1bc80eba280eec4eb5b79659f9889483
             {
                 deck.CreateDeck();
                 Console.WriteLine("Time to shuffle deck");
@@ -68,34 +60,22 @@ namespace Blackjack
             }
             foreach (Player player in players)
             {
-<<<<<<< HEAD
                 player.AddCard(deck.GetCard());
                 System.Console.WriteLine(player.GetHandCount());
                 Console.ReadLine();
-                drawnCards.RememberCard(player.GetDrawnCard());
+                drawnCards.RememberCard(player.GetNameOfDrawnCard() ,player.GetDrawnCard());
 
                 player.AddCard(deck.GetCard());
-                drawnCards.RememberCard(player.GetDrawnCard());
-=======
-                player.hand.Add(deck.deckUnOrder.Dequeue());
-                drawnCards.RememberCard(player.hand[player.hand.Count - 1].GetCardString(), player.hand[player.hand.Count - 1]);
-
-                player.hand.Add(deck.deckUnOrder.Dequeue());
-                drawnCards.RememberCard(player.hand[player.hand.Count - 1].GetCardString(), player.hand[player.hand.Count - 1]);
->>>>>>> 602baa3c1bc80eba280eec4eb5b79659f9889483
+                    drawnCards.RememberCard(player.GetNameOfDrawnCard() ,player.GetDrawnCard());
 
                 if (player.HandValue() == 21)
                 {
                     BlackjackWin();
                 }
             }
-<<<<<<< HEAD
             dealer.AddCard(deck.GetCard());
-            drawnCards.RememberCard(dealer.GetDrawnCard());
-=======
-            dealer.hand.Add(deck.deckUnOrder.Dequeue());
-            drawnCards.RememberCard(dealer.hand[dealer.hand.Count - 1].GetCardString(), dealer.hand[dealer.hand.Count - 1]);
->>>>>>> 602baa3c1bc80eba280eec4eb5b79659f9889483
+                    drawnCards.RememberCard(player.GetNameOfDrawnCard() ,player.GetDrawnCard());
+
 
         }
         public void OfferHit()
@@ -110,14 +90,8 @@ namespace Blackjack
                 string input = Console.ReadLine();
                 if (input == "y" || input == "Y")
                 {
-<<<<<<< HEAD
                     player.Hit(deck.GetCard());
-                    drawnCards.RememberCard(player.GetDrawnCard());
-=======
-                    player.Hit(deck.deckUnOrder.Dequeue());
-                    drawnCards.RememberCard(player.hand[player.hand.Count - 1].GetCardString(), player.hand[player.hand.Count - 1]);
->>>>>>> 602baa3c1bc80eba280eec4eb5b79659f9889483
-
+                    drawnCards.RememberCard(player.GetNameOfDrawnCard() ,player.GetDrawnCard());
                 }
                 else if (input == "n" || input == "N")
                 {
@@ -151,13 +125,9 @@ namespace Blackjack
                     {
                         break;
                     }
-<<<<<<< HEAD
                     dealer.Hit(deck.GetCard());
-                    drawnCards.RememberCard(dealer.GetDrawnCard());
-=======
-                    dealer.Hit(deck.deckUnOrder.Dequeue());
-                    drawnCards.RememberCard(dealer.hand[dealer.hand.Count - 1].GetCardString(), dealer.hand[dealer.hand.Count - 1]);
->>>>>>> 602baa3c1bc80eba280eec4eb5b79659f9889483
+                    drawnCards.RememberCard(dealer.GetNameOfDrawnCard(), dealer.GetDrawnCard());
+
                 }
             }
         }

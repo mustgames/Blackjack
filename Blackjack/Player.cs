@@ -117,5 +117,9 @@ namespace Blackjack
         {
             return hand[GetHandCount()- 1];
         }
+        public string GetNameOfDrawnCard()
+        {
+            return GetDrawnCard().GetCardString();
+        }
     }
 }
